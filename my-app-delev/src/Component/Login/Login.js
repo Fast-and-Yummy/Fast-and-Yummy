@@ -36,9 +36,12 @@ function Login() {
       });
   };
   return (
+  <div>
+    <h1 className="text-5xl font-bold text-white text-center absolute top-5 w-full">FAST <span className="text-yellow-300">&& </span>  YUMMY</h1>
     <div className={styles.container}>
+      
       <div className={styles.innerBox}>
-        <h1 className={styles.heading}>Login</h1>
+        <h1 className={styles.heading }>Login</h1>
 
         <InputControl
           label="Email"
@@ -62,12 +65,21 @@ function Login() {
           </button>
           <p>
             Already have an account?{" "}
+
             <span>
               <Link to="/signup">Sign up</Link>
             </span>
           </p>
+          <p>
+            You want to return?{" "}
+            
+            <span>
+              <Link to="/">Home</Link>
+            </span>
+          </p>
         </div>
       </div>
+    </div>
     </div>
   );
 }
