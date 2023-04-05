@@ -1,4 +1,5 @@
 import './App.css';
+
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
@@ -13,6 +14,7 @@ import Signup from './Component/signup/Signup';
 
 
 function App() {
+
   const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
 
@@ -33,6 +35,7 @@ function deleteFood(id){
 
 
 
+
   return (
     <div className="App">
 
@@ -43,18 +46,20 @@ function deleteFood(id){
 
 
 
+
       <Router>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/" element={<Hoome />} />
+        <Route path="/" element={<MainContent />} />
+
+          <Route    path="/login" element={<Login/>} />
+          <Route    path="/Signup" element={<Signup />} />
+
             
           
         </Routes>
+        
       </Router>
-   <Navbar/>
-   <Home/>
-   <Favmain/>
+
   
    { notes && notes.map((e,i)=> {
     return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
@@ -62,6 +67,19 @@ function deleteFood(id){
   
   <Footer/>
     </div>
+    
+  );
+}
+
+function MainContent() {
+  return (
+    <>
+   <Navbar/>
+<Hoome/>
+   <Home/>
+   <Favmain/>
+   
+    </>
   );
 }
 
