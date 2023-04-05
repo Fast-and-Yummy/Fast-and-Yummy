@@ -41,6 +41,8 @@ function Signup() {
   };
 
   return (
+    <div> 
+    <h1 className="text-5xl font-bold text-white text-center absolute top-5 w-full">FAST <span className="text-yellow-300">&& </span>  YUMMY</h1>
     <div className={styles.container}>
       <div className={styles.innerBox}>
         <h1 className={styles.heading}>Signup</h1>
@@ -80,6 +82,7 @@ function Signup() {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 }
