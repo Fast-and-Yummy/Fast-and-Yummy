@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
+import React, { useState } from 'react';
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
@@ -31,6 +32,7 @@ function deleteFood(id){
   }).catch(err=>console.log(err))}
 
 
+const [show,setshow]=useState(false)
 
 
   return (
@@ -43,18 +45,20 @@ function deleteFood(id){
 
 
 
+    
       <Router>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/" element={<Hoome />} />
+        <Route path="/" element={<MainContent />} />
+
+          <Route    path="/login" element={<Login/>} />
+          <Route    path="/Signup" element={<Signup />} />
+
             
           
         </Routes>
+        
       </Router>
-   <Navbar/>
-   <Home/>
-   <Favmain/>
+
   
    { notes && notes.map((e,i)=> {
     return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
@@ -62,6 +66,19 @@ function deleteFood(id){
   
   <Footer/>
     </div>
+    
+  );
+}
+
+function MainContent() {
+  return (
+    <>
+   <Navbar/>
+<Hoome/>
+   <Home/>
+   <Favmain/>
+   
+    </>
   );
 }
 
