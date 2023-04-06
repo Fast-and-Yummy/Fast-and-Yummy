@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
-import React, { useState } from 'react';
+
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
@@ -64,7 +64,7 @@ const [show,setshow]=useState(false)
     return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
   })}
   
-  <Footer/>
+ 
     </div>
     
   );
@@ -77,7 +77,8 @@ function MainContent() {
 <Hoome/>
    <Home/>
    <Favmain/>
-   
+  
+   <Footer/>
     </>
   );
 }

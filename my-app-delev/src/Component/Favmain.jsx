@@ -9,16 +9,16 @@ function Favmain() {
             </div> 
         <div class="   flex justify-center ml-60    h-60 ">
             
-            <div  class=" -mt-3.5 mx-auto  py-16 ">
+            <div  className=" -mt-3.5 mx-auto  py-16 ">
             
 
-                <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                        <div class="  border-e-0   aspect-h-1 aspect-w-1 w-48 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    <div className="group relative">
+                        <div className="  border-e-0   aspect-h-1 aspect-w-1 w-48 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
                             <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReZWRaroB0EWcdDv2iLQ6vDrndvH2CcZvu-Q&usqp=CAU" />
                         </div>
-                        <h2 class="text-xl font-bold tracking-tight text-gray-900">Easy Order </h2>
-                        <div class="mt-4 flex justify-between">
+                        <h2 className="text-xl font-bold tracking-tight text-gray-900">Easy Order </h2>
+                        <div className="mt-4 flex justify-between">
                             <div>
 
 
@@ -30,16 +30,16 @@ function Favmain() {
 
                 </div>
             </div>
-            <div  class=" -mt-3.5 mx-auto  py-16 ">
+            <div  className=" -mt-3.5 mx-auto  py-16 ">
             
 
-                <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div class="group relative">
-                        <div class=" border-solid rounded  border-e-0  aspect-h-1 aspect-w-1 w-48 overflow-hidden  none group-hover:opacity-75 ">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUicKSGjfvXyZadotPQVzGJtXUrMYxLBll2_6hoLCtnhYZHSCpUFPof9aa4lO6SRrkfQ4&usqp=CAU" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    <div className="group relative">
+                        <div className=" border-solid rounded  border-e-0  aspect-h-1 aspect-w-1 w-48 overflow-hidden  none group-hover:opacity-75 ">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUicKSGjfvXyZadotPQVzGJtXUrMYxLBll2_6hoLCtnhYZHSCpUFPof9aa4lO6SRrkfQ4&usqp=CAU" alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                         </div>
-                        <h2 class="text-xl font-bold tracking-tight text-gray-900">Fastest Delivery</h2>
-                        <div class="mt-4 flex justify-between">
+                        <h2 className="text-xl font-bold tracking-tight text-gray-900">Fastest Delivery</h2>
+                        <div className="mt-4 flex justify-between">
                             <div>
 
 
@@ -51,16 +51,16 @@ function Favmain() {
 
                 </div>
             </div>
-            <div  class=" -mt-3.5 mx-auto max-w-2xl px-4 py-16 sm:px-6  lg:max-w-7xl lg:px-8">
+            <div  className=" -mt-3.5 mx-auto max-w-2xl px-4 py-16 sm:px-6  lg:max-w-7xl lg:px-8">
             
 
-            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                <div class="group relative">
-                    <div class=" aspect-h-1 aspect-w-1 w-48 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-                        <img src="https://sortedmedia.com.au/wp-content/uploads/2020/06/DSC0903-scaled.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div className="group relative">
+                    <div className=" aspect-h-1 aspect-w-1 w-48 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
+                        <img src="https://sortedmedia.com.au/wp-content/uploads/2020/06/DSC0903-scaled.jpg" alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                     </div>
-                    <h2 class="text-xl font-bold tracking-tight text-gray-900">Best Quality</h2>
-                    <div class="mt-4 flex justify-between">
+                    <h2 className="text-xl font-bold tracking-tight text-gray-900">Best Quality</h2>
+                    <div className="mt-4 flex justify-between">
                         <div>
 
 
