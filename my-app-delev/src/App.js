@@ -12,11 +12,19 @@ import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
 import Signup from './Component/signup/Signup';
 import Mainmenu from './Component/menu/Mainmenu';
+import DisplayFood from './Component/DisplayFood';
+import Shop from './Component/Shop/Shop';
 
 
 
 function App() {
+  const [shop,setShop]=useState([])
+  const addtocard = (option) =>{
+    setShop([...shop,option])
+    
 
+  }
+console.log(shop)
   const [tr, setTr] = useState(true)
   const [notes, setNotes] = useState([])
 
@@ -24,7 +32,7 @@ function App() {
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/Foods/getAll").then(response => {
-      console.log(response.data)
+      
       setNotes(response.data)
     }).catch(err => console.log(err))
   }, [tr])
@@ -54,9 +62,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu />}/>
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="/Shop" element={<Shop shop={shop}/>} />
+          <Route path="/Food" element={<DisplayFood fn ={addtocard} />} />
         </Routes>
 
       </Router>
