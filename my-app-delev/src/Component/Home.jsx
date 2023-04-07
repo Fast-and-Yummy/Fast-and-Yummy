@@ -20,8 +20,10 @@ function Home() {
   
  
   return (
+    
    
     <div style={styles}>
+      
       <div className='absolute top-10 left-10'>
         <div className='absolute top-48 left-10'>
         <p className='font-bold text-white  bg text-lg'>ENJOY YOUR MEAL WITH FAST  <span className='text-yellow-300'>&& </span>YUMMY</p>

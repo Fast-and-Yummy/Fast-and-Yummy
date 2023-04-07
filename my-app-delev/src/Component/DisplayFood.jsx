@@ -7,7 +7,7 @@ const DisplayFood = ({fn}) => {
    
     const location = useLocation()
     const { data = {} } = location.state || {};
-    console.log(data)
+
   return (
     <div>
     <div style={{ position: 'relative', zIndex: 11 }}>
