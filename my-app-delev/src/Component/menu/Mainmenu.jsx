@@ -4,7 +4,11 @@ import Navbar from '../Navbar'
 import axios from 'axios';
 
 function Mainmenu({fn}) {
+
+
+
   const navigate = useNavigate()
+  
 
   const [datas,saved]= useState([])
   const backgroundImageUrl = 'https://img.freepik.com/premium-photo/chef-cook-fries-meat-beef-steak-open-fire-restaurant_127425-660.jpg';
@@ -90,7 +94,7 @@ function Mainmenu({fn}) {
   <div>
     <p class="text-sm font-medium text-gray-900"> price : ${e.price}</p>
 
-    <span onClick={()=>{fn(e)}} className='text-center mt-10 ml-3 absolute left-20 border-solid border-2 px-3 py-1 rounded-md  bg-yellow-500/100 text-white'> Add to card</span>
+    <span  onClick={()=>{fn(e)}} className='text-center mt-10 ml-3 absolute left-20 border-solid border-2 px-3 py-1 rounded-md  cursor-pointer  bg-yellow-500/100 text-white'> Add to card</span>
   </div>
 </div>
 </div>
