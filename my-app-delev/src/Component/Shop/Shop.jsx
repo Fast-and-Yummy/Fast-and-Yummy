@@ -1,9 +1,22 @@
 import React from 'react'
 import Navbar from '../Navbar'
+import { useNavigate } from 'react-router-dom';
 
-const Shop = ({ shop }) => {
-  console.log(shop)
+
+
+const Shop = ({ shop,onInputChange,emailsaved }) => {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    navigate('/order');
+
+  };
+  
   return (
+    
     <div>
       <Navbar />
       <div className="mt-20">
@@ -16,13 +29,13 @@ const Shop = ({ shop }) => {
           <div className="flex flex-col md:w-full">
             <h2 className="mb-4 font-bold md:text-xl text-heading ">Shipping Address
             </h2>
-            <form className="justify-center w-full mx-auto" method="post" action>
+            <form className="justify-center w-full mx-auto"  onSubmit={handleSubmit}>
               <div className="">
                 <div className="space-x-0 lg:flex lg:space-x-4">
                   <div className="w-full lg:w-1/2">
                     <label for="firstName" className="block mb-3 text-sm font-semibold text-gray-500">First
                       Name</label>
-                    <input name="firstName" type="text" placeholder="First Name"
+                    <input name="firstName" type="text" onChange={onInputChange} placeholder="First Name"
                       className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                   </div>
                   <div className="w-full lg:w-1/2 ">
@@ -36,7 +49,7 @@ const Shop = ({ shop }) => {
                   <div className="w-full">
                     <label for="Email"
                       className="block mb-3 text-sm font-semibold text-gray-500">Email</label>
-                    <input name="Last Name" type="text" placeholder="Email"
+                    <input name="Last Name" type="text" placeholder="Email" onChange={emailsaved}
                       className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                   </div>
                 </div>

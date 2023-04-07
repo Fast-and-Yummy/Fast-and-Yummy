@@ -14,11 +14,26 @@ import Signup from './Component/signup/Signup';
 import Mainmenu from './Component/menu/Mainmenu';
 import DisplayFood from './Component/DisplayFood';
 import Shop from './Component/Shop/Shop';
-
+import Order from './Component/Order/Order';
 
 
 function App() {
   const [shop,setShop]=useState([])
+  const [savename,setname]= useState()
+  const [saveemail,setnemail]= useState()
+
+  const handleInput=(event) =>{
+    setname(event.target.value)
+
+  }
+  const handleemail=(event) =>{
+    setnemail(event.target.value)
+    
+  }
+
+
+  
+  
   const addtocard = (option) =>{
     setShop([...shop,option])
     
@@ -65,8 +80,9 @@ console.log(shop)
          <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/Shop" element={<Shop shop={shop}/>} />
+          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard} />} />
+          <Route path="/order" element={  <Order ordersaved={shop} name={savename} email={saveemail} />} />
         </Routes>
 
       </Router>
@@ -87,6 +103,7 @@ function MainContent() {
       <Home />
       <Favmain />
     <Footer/>
+  
 
     </>
   );
