@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar'
 import { useNavigate } from 'react-router-dom';
 
 
 
 const Shop = ({ shop,onInputChange,emailsaved }) => {
-
+const [dt,setDT]=useState(shop)
+const [total,setTotal]=useState(0)
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    navigate('/order');
+    navigate('/order',{state:{tot:total}});
 
   };
   
+  const totalprice=()=>{
+    setTotal(shop.reduce((acc,e,i)=>{
+      return acc+=e.price
+    },0))
+  }
+
+  useEffect(()=>{
+    totalprice()
+  },[])
   return (
     
     <div>
@@ -101,7 +111,7 @@ const Shop = ({ shop,onInputChange,emailsaved }) => {
               </h2>
               <div className="mt-8">
                 <div className="flex flex-col space-y-4">
-                 {shop.map((e)=>(
+                 {dt.map((e,i)=>(
                    <div className="flex space-x-4">
                    <div>
                      <img src={e.img} alt="image"
@@ -114,7 +124,12 @@ const Shop = ({ shop,onInputChange,emailsaved }) => {
                    </div>
                    <div>
                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none"
-                       viewBox="0 0 24 24" stroke="currentColor">
+                       viewBox="0 0 24 24" stroke="currentColor"   onClick={()=>{
+                        setDT(dt.filter((k,j)=>{
+                          return j!==i
+                        }))
+                        setTotal(total-e.price)
+                       }}>
                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                          d="M6 18L18 6M6 6l12 12" />
                      </svg>
@@ -127,17 +142,17 @@ const Shop = ({ shop,onInputChange,emailsaved }) => {
                 </div>
               </div>
               <div className="flex p-4 mt-4">
-                <h2 className="text-xl font-bold">ITEMS 2</h2>
+                <h2 className="text-xl font-bold">ITEMS {dt.length}</h2>
               </div>
               <div
                 className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                Subtotal<span className="ml-2">$40.00</span></div>
+                Subtotal<span className="ml-2">${total}</span></div>
               <div
                 className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
                 Shipping Tax<span className="ml-2">$10</span></div>
               <div
                 className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
-                Total<span className="ml-2">$50.00</span></div>
+                Total<span className="ml-2">${total+10}</span></div>
             </div>
           </div>
         </div>

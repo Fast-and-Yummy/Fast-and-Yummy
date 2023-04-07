@@ -1,9 +1,12 @@
 import React from 'react'
-
+import { useLocation} from 'react-router-dom'
 function Order({ordersaved,name,email}) {
+  const location = useLocation()
+    const { tot = {} } = location.state || {};
     console.log(ordersaved);
     console.log(name);
     const randomorder =  Math.floor(1000 + Math.random() * 9000);
+    console.log(tot);
   return (
     <div>
        
@@ -43,7 +46,7 @@ function Order({ordersaved,name,email}) {
       </div>
       <div class="text-xs">
         <div class="mb-1">
-        <p>Total : need to be fixed ya bro raka7 sum w  lifti state w eb3thou $$</p>
+        <p>Total : {tot+10}</p>
         </div>
         <div class="mb-10"></div>
        
