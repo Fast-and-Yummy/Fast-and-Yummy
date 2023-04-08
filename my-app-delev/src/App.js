@@ -8,6 +8,8 @@ import Home from './Component/Home';
 import Favmain from './Component/Favmain';
 import Footer from './Component/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import NameChecker from './Component/NameChecker';
 import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
 import Signup from './Component/signup/Signup';
@@ -30,6 +32,33 @@ function App() {
     setnemail(event.target.value)
     
   }
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+
+  // return (
+  //   <div>
+  //     <label>
+  //       First name:
+  //       <input type="text" value={firstName} onChange={handleFirstNameChange} />
+  //     </label>
+  //     <br />
+  //     <label>
+  //       Last name:
+  //       <input type="text" value={lastName} onChange={handleLastNameChange} />
+  //     </label>
+  //     <br />
+  //     <NameChecker firstName={firstName} lastName={lastName} />
+  //   </div>
+  // );
+
 
 
   
@@ -66,7 +95,19 @@ console.log(shop)
   return (
     <div className="App">
 
-
+<div>
+      <label>
+        ADMIN:
+        <input type="text" value={firstName} onChange={handleFirstNameChange} />
+      </label>
+      <br />
+      <label>
+        PASSWORD:
+        <input type="text" value={lastName} onChange={handleLastNameChange} />
+      </label>
+      <br />
+      <NameChecker firstName={firstName} lastName={lastName} />
+    </div>
 
 
 
@@ -78,6 +119,7 @@ console.log(shop)
         <Routes>
           <Route path="/" element={<MainContent />} />
          <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
+         <Route path='/admin' element= {<NameChecker/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} emailsaved={handleemail}/>} />
@@ -87,6 +129,7 @@ console.log(shop)
 
       </Router>
 
+     
 
     
     
@@ -101,10 +144,14 @@ function MainContent() {
       <Navbar />
       <Hoome />
       <Home />
+      {/* <NameChecker/> */}
       <Favmain />
     <Footer/>
   
 
+    
+ 
+    
     </>
   );
 }
