@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
+
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
@@ -25,8 +26,14 @@ function App() {
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
 
+
+
+  const [tr, setTr]=useState(true)
+const [notes,setNotes]=useState([])
+
   const handleInput=(event) =>{
     setname(event.target.value)
+
 
   }
   const handleemail=(event) =>{
@@ -72,6 +79,11 @@ function App() {
 console.log(shop)
   const [tr, setTr] = useState(true)
   const [notes, setNotes] = useState([])
+
+
+
+
+const [show,setshow]=useState(false)
 
 
 
@@ -130,6 +142,17 @@ console.log(shop)
 
       </Router>
 
+
+  
+   { notes && notes.map((e,i)=> {
+    return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
+  })}
+  
+
+  <Footer/>
+
+    </div>
+
      
 
     
@@ -142,6 +165,14 @@ console.log(shop)
 function MainContent() {
   return (
     <>
+
+   <Navbar/>
+<Hoome/>
+   <Home/>
+   <Favmain/>
+  
+   <Footer/>
+
       <Navbar />
       <Hoome />
       <Home />
@@ -153,6 +184,7 @@ function MainContent() {
     
  
     
+
     </>
   );
 }
