@@ -16,6 +16,8 @@ import Mainmenu from './Component/menu/Mainmenu';
 import DisplayFood from './Component/DisplayFood';
 import Shop from './Component/Shop/Shop';
 import Order from './Component/Order/Order';
+import EditFood from './Component/Admin/EditFood';
+import CreatFood from './Component/Admin/CreatFood';
 
 
 
@@ -107,6 +109,8 @@ const [show,setshow]=useState(false)
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
           <Route path="/order" element={  <Order ordersaved={shop}  name={savename} email={saveemail} />} />
+          <Route path="/Edit" element={<EditFood />} />
+          <Route path="/add" element={<CreatFood />} />
         </Routes>
 
       </Router>
