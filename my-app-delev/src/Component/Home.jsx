@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, Route, Routes} from 'react-router-dom';
 
 
+
 function Home() {
 
 
@@ -19,10 +20,9 @@ function Home() {
   };
   
  
-  return (
-    
-   
+  return (  
     <div style={styles}>
+      
       
       <div className='absolute top-10 left-10'>
         <div className='absolute top-48 left-10'>

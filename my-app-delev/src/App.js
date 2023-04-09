@@ -17,11 +17,17 @@ import Shop from './Component/Shop/Shop';
 import Order from './Component/Order/Order';
 
 
+
+
 function App() {
   const [shop,setShop]=useState([])
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
+  const [count, setCount] = useState(0);
 
+  const handleCardCount = () => {
+    setCount(prevCount => prevCount + 1);
+  };
   const handleInput=(event) =>{
     setname(event.target.value)
 
@@ -58,6 +64,7 @@ console.log(shop)
       console.log(response.data); setTr(!tr)
     }).catch(err => console.log(err))
   }
+  console.log(count);
 
 
 
@@ -76,13 +83,13 @@ console.log(shop)
 
       <Router>
         <Routes>
-          <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<MainContent  />} />
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
+          <Route path="/login" element={<Login />} /> 
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} emailsaved={handleemail}/>} />
-          <Route path="/Food" element={<DisplayFood fn ={addtocard} />} />
-          <Route path="/order" element={  <Order ordersaved={shop} name={savename} email={saveemail} />} />
+          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
+          <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
+          <Route path="/order" element={  <Order ordersaved={shop}  name={savename} email={saveemail} />} />
         </Routes>
 
       </Router>
@@ -95,10 +102,12 @@ console.log(shop)
   );
 }
 
+
 function MainContent() {
   return (
+    
     <>
-      <Navbar />
+      <Navbar   />
       <Hoome />
       <Home />
       <Favmain />
