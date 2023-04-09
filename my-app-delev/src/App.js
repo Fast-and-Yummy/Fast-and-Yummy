@@ -7,9 +7,10 @@ import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
 import Footer from './Component/Footer';
+import WelcomeAdmin from './Component/Admin/WelcomeAdmin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import NameChecker from './Component/NameChecker';
+import NameChecker from './Component/Admin/NameChecker';
 import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
 import Signup from './Component/signup/Signup';
@@ -95,7 +96,7 @@ console.log(shop)
   return (
     <div className="App">
 
-<div>
+{/* <div className='login'>
       <label>
         ADMIN:
         <input type="text" value={firstName} onChange={handleFirstNameChange} />
@@ -107,8 +108,7 @@ console.log(shop)
       </label>
       <br />
       <NameChecker firstName={firstName} lastName={lastName} />
-    </div>
-
+    </div> */}
 
 
 
@@ -119,8 +119,9 @@ console.log(shop)
         <Routes>
           <Route path="/" element={<MainContent />} />
          <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
-         <Route path='/admin' element= {<NameChecker/>}/>
-          <Route path="/login" element={<Login />} />
+         <Route path='/admins' element= {<NameChecker/>}/>
+         <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
+          <Route path="/login" element={<Login /> } />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard} />} />
