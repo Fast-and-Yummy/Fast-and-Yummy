@@ -2,15 +2,12 @@ import './App.css';
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Delete from './Component/Delete';
-
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
 import Footer from './Component/Footer';
 import WelcomeAdmin from './Component/Admin/WelcomeAdmin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import NameChecker from './Component/Admin/NameChecker';
 import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
@@ -28,18 +25,14 @@ function App() {
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
   const [count, setCount] = useState(0);
-
-<<<<<<<<< Temporary merge branch 1
-
-
-  const [tr, setTr]=useState(true)
+const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
 
-=========
+
   const handleCardCount = () => {
     setCount(prevCount => prevCount + 1);
   };
->>>>>>>>> Temporary merge branch 2
+
   const handleInput=(event) =>{
     setname(event.target.value)
 
@@ -60,21 +53,7 @@ const [notes,setNotes]=useState([])
     setLastName(event.target.value);
   };
 
-  // return (
-  //   <div>
-  //     <label>
-  //       First name:
-  //       <input type="text" value={firstName} onChange={handleFirstNameChange} />
-  //     </label>
-  //     <br />
-  //     <label>
-  //       Last name:
-  //       <input type="text" value={lastName} onChange={handleLastNameChange} />
-  //     </label>
-  //     <br />
-  //     <NameChecker firstName={firstName} lastName={lastName} />
-  //   </div>
-  // );
+
 
 
 
@@ -86,8 +65,6 @@ const [notes,setNotes]=useState([])
 
   }
 console.log(shop)
-  const [tr, setTr] = useState(true)
-  const [notes, setNotes] = useState([])
 
 
 
@@ -104,12 +81,7 @@ const [show,setshow]=useState(false)
   }, [tr])
 
 
-  function deleteFood(id) {
-    axios.deleteOne("http://localhost:5000/api/Foods/:" + id).then(response => {
-      console.log(response.data); setTr(!tr)
-    }).catch(err => console.log(err))
-  }
-  console.log(count);
+
 
 
 
@@ -118,20 +90,6 @@ const [show,setshow]=useState(false)
   return (
     <div className="App">
 
-{/* <div className='login'>
-      <label>
-        ADMIN:
-        <input type="text" value={firstName} onChange={handleFirstNameChange} />
-      </label>
-      <br />
-      <label>
-        PASSWORD:
-        <input type="text" value={lastName} onChange={handleLastNameChange} />
-      </label>
-      <br />
-      <NameChecker firstName={firstName} lastName={lastName} />
-    </div> */}
-
 
 
 
@@ -139,17 +97,12 @@ const [show,setshow]=useState(false)
 
       <Router>
         <Routes>
-<<<<<<<<< Temporary merge branch 1
-          <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} />}/>
-         <Route path='/admins' element= {<NameChecker/>}/>
-         <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
-          <Route path="/login" element={<Login /> } />
-=========
+
           <Route path="/" element={<MainContent  />} />
          <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
           <Route path="/login" element={<Login />} /> 
->>>>>>>>> Temporary merge branch 2
+          <Route path="/welcomeAdmin" element={<WelcomeAdmin/>} />
+          <Route path="/admin" element={<NameChecker/>} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
@@ -160,14 +113,12 @@ const [show,setshow]=useState(false)
 
 
   
-   { notes && notes.map((e,i)=> {
-    return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
-  })}
+
   
 
-  <Footer/>
+  
 
-    </div>
+  
 
      
 
@@ -175,27 +126,17 @@ const [show,setshow]=useState(false)
     
     </div>
 
-  );
-}
+  
+)}
 
 
 function MainContent() {
   return (
     
     <>
-<<<<<<<<< Temporary merge branch 1
 
-   <Navbar/>
-<Hoome/>
-   <Home/>
-   <Favmain/>
-  
-   <Footer/>
-
-      <Navbar />
-=========
       <Navbar   />
->>>>>>>>> Temporary merge branch 2
+
       <Hoome />
       <Home />
       {/* <NameChecker/> */}
