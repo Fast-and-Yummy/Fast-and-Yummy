@@ -28,18 +28,14 @@ function App() {
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
   const [count, setCount] = useState(0);
-
-<<<<<<<<< Temporary merge branch 1
-
-
-  const [tr, setTr]=useState(true)
+const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
 
-=========
+
   const handleCardCount = () => {
     setCount(prevCount => prevCount + 1);
   };
->>>>>>>>> Temporary merge branch 2
+
   const handleInput=(event) =>{
     setname(event.target.value)
 
@@ -86,8 +82,6 @@ const [notes,setNotes]=useState([])
 
   }
 console.log(shop)
-  const [tr, setTr] = useState(true)
-  const [notes, setNotes] = useState([])
 
 
 
@@ -139,17 +133,12 @@ const [show,setshow]=useState(false)
 
       <Router>
         <Routes>
-<<<<<<<<< Temporary merge branch 1
-          <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} />}/>
-         <Route path='/admins' element= {<NameChecker/>}/>
-         <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
-          <Route path="/login" element={<Login /> } />
-=========
+
           <Route path="/" element={<MainContent  />} />
          <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
           <Route path="/login" element={<Login />} /> 
->>>>>>>>> Temporary merge branch 2
+          <Route path="/welcomeAdmin" element={<WelcomeAdmin/>} />
+          <Route path="/admin" element={<NameChecker/>} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
@@ -160,14 +149,12 @@ const [show,setshow]=useState(false)
 
 
   
-   { notes && notes.map((e,i)=> {
-    return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
-  })}
+
   
 
-  <Footer/>
+  
 
-    </div>
+  
 
      
 
@@ -175,27 +162,17 @@ const [show,setshow]=useState(false)
     
     </div>
 
-  );
-}
+  
+)}
 
 
 function MainContent() {
   return (
     
     <>
-<<<<<<<<< Temporary merge branch 1
 
-   <Navbar/>
-<Hoome/>
-   <Home/>
-   <Favmain/>
-  
-   <Footer/>
-
-      <Navbar />
-=========
       <Navbar   />
->>>>>>>>> Temporary merge branch 2
+
       <Hoome />
       <Home />
       {/* <NameChecker/> */}
