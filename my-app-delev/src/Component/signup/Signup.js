@@ -41,7 +41,7 @@ function Signup() {
   };
 
   return (
-    <div> 
+    <div className="bg-yellow-200"> 
     <h1 className="text-5xl font-bold text-white text-center absolute top-5 w-full">FAST <span className="text-yellow-300">&& </span>  YUMMY</h1>
     <div className={styles.container}>
       <div className={styles.innerBox}>
