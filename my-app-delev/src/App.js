@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
+
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
@@ -14,6 +15,7 @@ import Signup from './Component/signup/Signup';
 
 
 function App() {
+
 
   const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
@@ -32,6 +34,9 @@ function deleteFood(id){
     console.log(response.data);setTr(!tr)
   }).catch(err=>console.log(err))}
 
+
+
+const [show,setshow]=useState(false)
 
 
 
@@ -65,7 +70,9 @@ function deleteFood(id){
     return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
   })}
   
+
   <Footer/>
+
     </div>
     
   );
@@ -78,7 +85,8 @@ function MainContent() {
 <Hoome/>
    <Home/>
    <Favmain/>
-   
+  
+   <Footer/>
     </>
   );
 }
