@@ -2,15 +2,12 @@ import './App.css';
 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Delete from './Component/Delete';
-
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
 import Footer from './Component/Footer';
 import WelcomeAdmin from './Component/Admin/WelcomeAdmin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import NameChecker from './Component/Admin/NameChecker';
 import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
@@ -56,21 +53,7 @@ const [notes,setNotes]=useState([])
     setLastName(event.target.value);
   };
 
-  // return (
-  //   <div>
-  //     <label>
-  //       First name:
-  //       <input type="text" value={firstName} onChange={handleFirstNameChange} />
-  //     </label>
-  //     <br />
-  //     <label>
-  //       Last name:
-  //       <input type="text" value={lastName} onChange={handleLastNameChange} />
-  //     </label>
-  //     <br />
-  //     <NameChecker firstName={firstName} lastName={lastName} />
-  //   </div>
-  // );
+
 
 
 
@@ -98,12 +81,7 @@ const [show,setshow]=useState(false)
   }, [tr])
 
 
-  function deleteFood(id) {
-    axios.deleteOne("http://localhost:5000/api/Foods/:" + id).then(response => {
-      console.log(response.data); setTr(!tr)
-    }).catch(err => console.log(err))
-  }
-  console.log(count);
+
 
 
 
@@ -111,20 +89,6 @@ const [show,setshow]=useState(false)
 
   return (
     <div className="App">
-
-{/* <div className='login'>
-      <label>
-        ADMIN:
-        <input type="text" value={firstName} onChange={handleFirstNameChange} />
-      </label>
-      <br />
-      <label>
-        PASSWORD:
-        <input type="text" value={lastName} onChange={handleLastNameChange} />
-      </label>
-      <br />
-      <NameChecker firstName={firstName} lastName={lastName} />
-    </div> */}
 
 
 
