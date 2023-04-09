@@ -1,4 +1,5 @@
 import './App.css';
+
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
@@ -14,6 +15,8 @@ import Signup from './Component/signup/Signup';
 
 
 function App() {
+
+
   const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
 
@@ -32,7 +35,10 @@ function deleteFood(id){
   }).catch(err=>console.log(err))}
 
 
+
 const [show,setshow]=useState(false)
+
+
 
 
   return (
@@ -45,7 +51,7 @@ const [show,setshow]=useState(false)
 
 
 
-    
+
       <Router>
         <Routes>
         <Route path="/" element={<MainContent />} />
@@ -64,7 +70,9 @@ const [show,setshow]=useState(false)
     return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
   })}
   
- 
+
+  <Footer/>
+
     </div>
     
   );
