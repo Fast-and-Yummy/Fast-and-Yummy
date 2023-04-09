@@ -21,10 +21,18 @@ import Shop from './Component/Shop/Shop';
 import Order from './Component/Order/Order';
 
 
+
+
 function App() {
   const [shop,setShop]=useState([])
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
+  const [count, setCount] = useState(0);
+
+
+  const handleCardCount = () => {
+    setCount(prevCount => prevCount + 1);
+  };
 
 
 
@@ -100,6 +108,7 @@ const [show,setshow]=useState(false)
       console.log(response.data); setTr(!tr)
     }).catch(err => console.log(err))
   }
+  console.log(count);
 
 
 
@@ -129,15 +138,17 @@ const [show,setshow]=useState(false)
 
       <Router>
         <Routes>
+
           <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} />}/>
          <Route path='/admins' element= {<NameChecker/>}/>
          <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
           <Route path="/login" element={<Login /> } />
+
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} emailsaved={handleemail}/>} />
-          <Route path="/Food" element={<DisplayFood fn ={addtocard} />} />
-          <Route path="/order" element={  <Order ordersaved={shop} name={savename} email={saveemail} />} />
+          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
+          <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
+          <Route path="/order" element={  <Order ordersaved={shop}  name={savename} email={saveemail} />} />
         </Routes>
 
       </Router>
@@ -162,18 +173,14 @@ const [show,setshow]=useState(false)
   );
 }
 
+
 function MainContent() {
   return (
+    
     <>
 
-   <Navbar/>
-<Hoome/>
-   <Home/>
-   <Favmain/>
-  
-   <Footer/>
+      <Navbar   />
 
-      <Navbar />
       <Hoome />
       <Home />
       {/* <NameChecker/> */}
