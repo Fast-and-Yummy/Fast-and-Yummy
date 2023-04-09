@@ -3,11 +3,15 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Delete from './Component/Delete';
+
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
 import Favmain from './Component/Favmain';
 import Footer from './Component/Footer';
+import WelcomeAdmin from './Component/Admin/WelcomeAdmin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import NameChecker from './Component/Admin/NameChecker';
 import Hoome from './Component/home/Hoome';
 import Login from './Component/Login/Login';
 import Signup from './Component/signup/Signup';
@@ -25,17 +29,52 @@ function App() {
   const [saveemail,setnemail]= useState()
   const [count, setCount] = useState(0);
 
+
   const handleCardCount = () => {
     setCount(prevCount => prevCount + 1);
   };
+
+
+
+  const [tr, setTr]=useState(true)
+const [notes,setNotes]=useState([])
+
   const handleInput=(event) =>{
     setname(event.target.value)
+
 
   }
   const handleemail=(event) =>{
     setnemail(event.target.value)
     
   }
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  };
+
+  // return (
+  //   <div>
+  //     <label>
+  //       First name:
+  //       <input type="text" value={firstName} onChange={handleFirstNameChange} />
+  //     </label>
+  //     <br />
+  //     <label>
+  //       Last name:
+  //       <input type="text" value={lastName} onChange={handleLastNameChange} />
+  //     </label>
+  //     <br />
+  //     <NameChecker firstName={firstName} lastName={lastName} />
+  //   </div>
+  // );
+
 
 
   
@@ -48,6 +87,11 @@ function App() {
 console.log(shop)
   const [tr, setTr] = useState(true)
   const [notes, setNotes] = useState([])
+
+
+
+
+const [show,setshow]=useState(false)
 
 
 
@@ -73,8 +117,19 @@ console.log(shop)
   return (
     <div className="App">
 
-
-
+{/* <div className='login'>
+      <label>
+        ADMIN:
+        <input type="text" value={firstName} onChange={handleFirstNameChange} />
+      </label>
+      <br />
+      <label>
+        PASSWORD:
+        <input type="text" value={lastName} onChange={handleLastNameChange} />
+      </label>
+      <br />
+      <NameChecker firstName={firstName} lastName={lastName} />
+    </div> */}
 
 
 
@@ -83,9 +138,13 @@ console.log(shop)
 
       <Router>
         <Routes>
-          <Route path="/" element={<MainContent  />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
-          <Route path="/login" element={<Login />} /> 
+
+          <Route path="/" element={<MainContent />} />
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} />}/>
+         <Route path='/admins' element= {<NameChecker/>}/>
+         <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
+          <Route path="/login" element={<Login /> } />
+
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
@@ -94,6 +153,18 @@ console.log(shop)
 
       </Router>
 
+
+  
+   { notes && notes.map((e,i)=> {
+    return <Delete key={i} id={i} data={e}  deleteFood={deleteFood} />
+  })}
+  
+
+  <Footer/>
+
+    </div>
+
+     
 
     
     
@@ -107,12 +178,19 @@ function MainContent() {
   return (
     
     <>
+
       <Navbar   />
+
       <Hoome />
       <Home />
+      {/* <NameChecker/> */}
       <Favmain />
     <Footer/>
   
+
+    
+ 
+    
 
     </>
   );
