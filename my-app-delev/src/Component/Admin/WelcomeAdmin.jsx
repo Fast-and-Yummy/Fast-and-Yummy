@@ -1,9 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 function WelcomeAdmin() {
 
+	const navigate = useNavigate()
+ 
+
+
 const [saveit,setdata]=useState([])
+
+
   useEffect(()=>{
     axios.get("http://localhost:5000/api/Foods/getall").then((res)=>{
       setdata(res.data);
@@ -92,11 +98,24 @@ const [saveit,setdata]=useState([])
 							{e.img} $
 						</td>
 						<td class="px-6 py-4 text-right">
-							<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+							<a onClick={()=>{navigate("/Edit",{state:{data:e}})}} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+							
 						</td>
+
+						<td class="px-6 py-4 text-right">
+							<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"></a>
+							<Link to="/Add">ADD</Link>
+						</td>
+
+
+
             <td class="px-6 py-4 text-right">
 							<a  class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>{deleteFood(e._id);}}>DELETE</a>
 						</td>
+
+						
+
+
 					</tr>
         ))}
 				
