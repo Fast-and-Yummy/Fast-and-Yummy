@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar'
 import { useNavigate } from 'react-router-dom';
+//import emailjs from "emailjs-com";
 
 
 
-const Shop = ({ shop,onInputChange,emailsaved }) => {
+
+
+
+const Shop = ({ shop,onInputChange,emailsaved,count}) => {
 const [dt,setDT]=useState(shop)
 const [total,setTotal]=useState(0)
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
+   
 
     navigate('/order',{state:{tot:total}});
 
@@ -24,11 +28,26 @@ const [total,setTotal]=useState(0)
 
   useEffect(()=>{
     totalprice()
-  },[])
+  },[]) 
+
+  /*function sendEmail(e) {
+    e.preventDefault();
+
+emailjs.sendForm('service_de7ooak', 'template_29f7jyy', e.target, 'c1KDl9CcFGoJ5SOA2')
+    .then((result) => {
+      handleSubmit()
+    }, (error) => {
+        console.log(error.text);
+    });
+    e.target.reset()
+
+}*/
+
+
   return (
     
     <div>
-      <Navbar />
+      <Navbar count={count} />
       <div className="mt-20">
         <h1 className="flex items-center justify-center font-bold text-black-600 lg:text-4xl">FAST <span className='text-yellow-400'> && </span> YUMMY
         
@@ -39,13 +58,13 @@ const [total,setTotal]=useState(0)
           <div className="flex flex-col md:w-full">
             <h2 className="mb-4 font-bold md:text-xl text-heading ">Shipping Address
             </h2>
-            <form className="justify-center w-full mx-auto"  onSubmit={handleSubmit}>
+            <form className="justify-center w-full mx-auto"  onSubmit={ sendEmail  }>
               <div className="">
                 <div className="space-x-0 lg:flex lg:space-x-4">
                   <div className="w-full lg:w-1/2">
                     <label for="firstName" className="block mb-3 text-sm font-semibold text-gray-500">First
                       Name</label>
-                    <input name="firstName" type="text" onChange={onInputChange} placeholder="First Name"
+                    <input name="firstName" type="text"  onChange={onInputChange} placeholder="First Name"
                       className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                   </div>
                   <div className="w-full lg:w-1/2 ">
@@ -59,7 +78,7 @@ const [total,setTotal]=useState(0)
                   <div className="w-full">
                     <label for="Email"
                       className="block mb-3 text-sm font-semibold text-gray-500">Email</label>
-                    <input name="Last Name" type="text" placeholder="Email" onChange={emailsaved}
+                    <input name="email" type="text" placeholder="Email" onChange={emailsaved}
                       className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"/>
                   </div>
                 </div>
@@ -100,7 +119,7 @@ const [total,setTotal]=useState(0)
                 </div>
                 <div className="mt-4">
                   <button
-                    className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">Process</button>
+                    className="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900" >Process</button>
                 </div>
               </div>
             </form>

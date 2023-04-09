@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, Route, Routes} from 'react-router-dom';
 
 
+
 function Home() {
 
 
@@ -19,10 +20,9 @@ function Home() {
   };
   
  
-  return (
-    
-   
+  return (  
     <div style={styles}>
+      
       
       <div className='absolute top-10 left-10'>
         <div className='absolute top-48 left-10'>
@@ -38,7 +38,7 @@ function Home() {
         </span>
       
         
-        <button type="button" class=" m-8  text-white bg-yellow-600 hover:bg-yellow-500 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-8 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" >Order Food</button>
+        <button type="button" className=" m-8  text-white bg-yellow-600 hover:bg-yellow-500 focus:outline-none focus:ring-4 font-medium rounded-full text-sm px-8 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" >Order Food</button>
       </div>
 
     </div>
