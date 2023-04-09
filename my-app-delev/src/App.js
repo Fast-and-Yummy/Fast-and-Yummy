@@ -29,17 +29,17 @@ function App() {
   const [saveemail,setnemail]= useState()
   const [count, setCount] = useState(0);
 
-<<<<<<< HEAD
-  const handleCardCount = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-=======
+<<<<<<<<< Temporary merge branch 1
 
 
   const [tr, setTr]=useState(true)
 const [notes,setNotes]=useState([])
 
->>>>>>> ce788ef18426f6c16a86fadc1f22f895b171bb63
+=========
+  const handleCardCount = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+>>>>>>>>> Temporary merge branch 2
   const handleInput=(event) =>{
     setname(event.target.value)
 
@@ -139,17 +139,17 @@ const [show,setshow]=useState(false)
 
       <Router>
         <Routes>
-<<<<<<< HEAD
-          <Route path="/" element={<MainContent  />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
-          <Route path="/login" element={<Login />} /> 
-=======
+<<<<<<<<< Temporary merge branch 1
           <Route path="/" element={<MainContent />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} />}/>
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} />}/>
          <Route path='/admins' element= {<NameChecker/>}/>
          <Route path='/welcomeAdmin' element= {<WelcomeAdmin/>}/>
           <Route path="/login" element={<Login /> } />
->>>>>>> ce788ef18426f6c16a86fadc1f22f895b171bb63
+=========
+          <Route path="/" element={<MainContent  />} />
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
+          <Route path="/login" element={<Login />} /> 
+>>>>>>>>> Temporary merge branch 2
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
           <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
@@ -183,9 +183,7 @@ function MainContent() {
   return (
     
     <>
-<<<<<<< HEAD
-      <Navbar   />
-=======
+<<<<<<<<< Temporary merge branch 1
 
    <Navbar/>
 <Hoome/>
@@ -195,7 +193,9 @@ function MainContent() {
    <Footer/>
 
       <Navbar />
->>>>>>> ce788ef18426f6c16a86fadc1f22f895b171bb63
+=========
+      <Navbar   />
+>>>>>>>>> Temporary merge branch 2
       <Hoome />
       <Home />
       {/* <NameChecker/> */}
