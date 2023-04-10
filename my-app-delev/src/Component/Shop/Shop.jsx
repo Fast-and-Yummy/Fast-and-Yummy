@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar'
 import { useNavigate } from 'react-router-dom';
-//import emailjs from "emailjs-com";
+import emailjs from "emailjs-com";
 
 
 
@@ -30,7 +30,7 @@ const [total,setTotal]=useState(0)
     totalprice()
   },[]) 
 
-  /*function sendEmail(e) {
+  function sendEmail(e) {
     e.preventDefault();
 
 emailjs.sendForm('service_de7ooak', 'template_29f7jyy', e.target, 'c1KDl9CcFGoJ5SOA2')
@@ -41,7 +41,7 @@ emailjs.sendForm('service_de7ooak', 'template_29f7jyy', e.target, 'c1KDl9CcFGoJ5
     });
     e.target.reset()
 
-}*/
+}
 
 
   return (

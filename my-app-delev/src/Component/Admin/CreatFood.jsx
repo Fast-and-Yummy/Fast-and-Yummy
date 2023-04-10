@@ -15,14 +15,16 @@ const uploadImg = async()=>{
   form.append("file",file)
   form.append("upload_preset","jassery")
 
- await axios.post("https://api.cloudinary.com/v1_1/dj6am9a7q/upload",form).then((reslt)=>setUrl(reslt.data.secure_url))
+ await axios.post("https://api.cloudinary.com/v1_1/dj6am9a7q/upload",form).then((reslt)=>
+ setUrl(reslt.data.secure_url))
 
 }
 
+console.log(url);
 
 const zid =()=>{
     axios.post("http://localhost:5000/api/Foods/add",{name:name,dsc:desc,img:url,price:price,}).then((reslt)=>{
-console.log(reslt)
+alert("added to menu")
     }).catch((err)=>{
       console.log(err)
     })
@@ -32,23 +34,25 @@ console.log(reslt)
 
 
   return (
-    
-    <div >CreatFood
-<div>
-<input type="file"  onChange={(e)=>{setFile(e.target.files[0])}}/> 
-<br />
-<button onClick={uploadImg} >upload</button>
-<img src={url} />
-</div> 
-<br />
-<input type="text" placeholder='name' onChange={(e)=>{setName(e.target.value)}} /> <br />
-<input type="text" placeholder='dec' onChange={(e)=>{setDesc(e.target.value)}}/>  <br />
-<input type="number" placeholder='price' onChange={(e)=>{setPrice(e.target.value)}}/> <br />
+<div className="bg-gray-100 p-4 rounded-md">
+  <div className="flex items-center mb-4">
+    <label className="mr-2">Upload Image:</label>
+    <input type="file" onChange={(e) => {setFile(e.target.files[0])}} className="border border-gray-400 px-2 py-1 rounded-md" />
+    <button onClick={uploadImg} className="ml-2 px-4 py-2 rounded-md bg-blue-500 text-white">Upload</button>
+  </div>
+  <img src={url} className="mb-4 rounded-md" />
 
-<input type="button" value="Creat" onClick={zid}/>
+  <label className="block mb-2 font-medium">Name:</label>
+  <input type="text" placeholder="Name" onChange={(e) => {setName(e.target.value)}} className="w-full border border-gray-400 px-2 py-1 rounded-md mb-4" />
 
+  <label className="block mb-2 font-medium">Description:</label>
+  <input type="text" placeholder="Description" onChange={(e) => {setDesc(e.target.value)}} className="w-full border border-gray-400 px-2 py-1 rounded-md mb-4" />
 
-    </div>
+  <label className="block mb-2 font-medium">Price:</label>
+  <input type="number" placeholder="Price" onChange={(e) => {setPrice(e.target.value)}} className="w-full border border-gray-400 px-2 py-1 rounded-md mb-4" />
+
+  <button onClick={zid} className="px-4 py-2 rounded-md bg-blue-500 text-white">Add</button>
+</div>
     
   )
 }
