@@ -4,6 +4,7 @@ import {Link } from 'react-router-dom';
 
 const NameChecker=()=>{
 
+
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = (event) => {
@@ -13,37 +14,38 @@ const NameChecker=()=>{
   }
 
   return (
-    <form  onSubmit={handleSubmit}>
-    <div className='admin'>
+    <form  onSubmit={handleSubmit}> 
+    <h1>page admin ya 3amo</h1>
+    <div className='admin mt-96 ' >
     <div className="screen-1">
 
-  <div class="email">
+  <div className="email">
  
     <label>
         Name:
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
-    <div class="sec-2">
+    <div className="sec-2">
       <ion-icon name="mail-outline"></ion-icon>
      
       
     </div>
   </div>
-  <div class="password">
+  <div className="password">
  
-    <div class="sec-2">
+    <div className="sec-2">
       <ion-icon name="lock-closed-outline"></ion-icon>
     
       <label>
         Password:
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
-      <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+      <ion-icon className="show-hide" name="eye-outline"></ion-icon>
     </div>
   </div>
   
-  {name === 'ghchiw' && password === 'ghchiw' && <Link className='login' to="/welcomeAdmin">Go to Welcome</Link>}
-  <div class="footer"><span>Forgot Password?</span></div>
+  {name === 'admin' && password === 'admin' && <Link className='login' to="/welcomeAdmin">Go to Welcome</Link>}
+
 </div>
 </div>
 </form>

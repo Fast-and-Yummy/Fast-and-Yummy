@@ -8,6 +8,13 @@ function WelcomeAdmin() {
 
 
 const [saveit,setdata]=useState([])
+const [chek,setdataagain]=useState(false)
+
+
+const handleshows =()=>{
+	setdataagain(!chek)
+
+}
 
 
   useEffect(()=>{
@@ -17,7 +24,7 @@ const [saveit,setdata]=useState([])
       console.log(err);
     })
   
-    },[])
+    },[chek])
 
     function deleteFood(id) {
       axios.delete("http://localhost:5000/api/Foods/" + id).then(response => {
@@ -31,11 +38,15 @@ const [saveit,setdata]=useState([])
   return (
     
     <div>
+		<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"></a>
+							
       
      <Link to="/" className="text-blue-500 text-lg  flex justify-center  mt-5 font-bold">BACK TO HOME</Link>
-   
+	 <div className='relative flex items-center justify-center mt-10'>
+  <Link className="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" to="/Add">Add Items</Link>
+</div>
+
 <div class="max-w-2xl  ">
- 
 
 	<div class=" ">
 		<div class="p-4">
@@ -102,15 +113,12 @@ const [saveit,setdata]=useState([])
 							
 						</td>
 
-						<td class="px-6 py-4 text-right">
-							<a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"></a>
-							<Link to="/Add">ADD</Link>
-						</td>
-
+					
 
 
             <td class="px-6 py-4 text-right">
-							<a  class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>{deleteFood(e._id);}}>DELETE</a>
+							<a  class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>{deleteFood(e._id)
+							handleshows()}}>DELETE</a>
 						</td>
 
 						
