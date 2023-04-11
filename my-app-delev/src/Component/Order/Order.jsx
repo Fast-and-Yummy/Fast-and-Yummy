@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation} from 'react-router-dom'
+import { useLocation,Link} from 'react-router-dom'
 function Order({ordersaved,name,email}) {
   const location = useLocation()
     const { tot = {} } = location.state || {};
@@ -12,7 +12,9 @@ function Order({ordersaved,name,email}) {
 
  
     <div className="flex justify-center items-center h-screen bg-gray-200 text-gray-900">
+    <Link to="/" className='text-1xl font-bold absolute inset-x top-3 h-16  left-3/4 border rounded-md border-gray-400 px-2 py-4 hover:bg-gray-100 '>Back home</Link>
     <h1 className="text-3xl font-bold absolute inset-x top-10 h-16 ">Thank you for your order!</h1>
+ 
     <div className="rounded-md relative w-72  mt-10 shadow-2xl p-3 bg-white">
       <div className="py-2">
         <div className="text-center text-xl font-bold">ORDER#{randomorder}</div>
