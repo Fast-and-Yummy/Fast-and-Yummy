@@ -17,12 +17,15 @@ import DisplayFood from './Component/DisplayFood';
 import Shop from './Component/Shop/Shop';
 import Order from './Component/Order/Order';
 import EditFood from './Component/Admin/EditFood';
+import Contact from './Component/about/Contact';
 import CreatFood from './Component/Admin/CreatFood';
 
 
 
 
+
 function App() {
+  const [email, setEmail] = useState("");
   const [shop,setShop]=useState([])
   const [savename,setname]= useState()
   const [saveemail,setnemail]= useState()
@@ -44,6 +47,10 @@ const [notes,setNotes]=useState([])
     setnemail(event.target.value)
     
   }
+  const handleemailprofile=(x)=>{
+    setEmail(x)
+  }
+  console.log( email);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -66,12 +73,11 @@ const [notes,setNotes]=useState([])
     
 
   }
-console.log(shop)
 
 
 
 
-const [show,setshow]=useState(false)
+
 
 
 
@@ -99,10 +105,12 @@ const [show,setshow]=useState(false)
 
       <Router>
         <Routes>
-
-          <Route path="/" element={<MainContent  />} />
-         <Route path='/menu' element={<Mainmenu fn ={addtocard} handleCardCount={handleCardCount} count={count} />}/>
-          <Route path="/login" element={<Login />} /> 
+          
+       
+        <Route path="/Contact" element={<  Contact/>} />
+          <Route path="/" element={<MainContent email={email} />} />
+         <Route path='/menu' element={<Mainmenu fn ={addtocard} email={email} handleCardCount={handleCardCount} count={count} />}/>
+          <Route path="/login" element={<Login  handleemailprofile={handleemailprofile}/>} /> 
           <Route path="/welcomeAdmin" element={<WelcomeAdmin/>} />
           <Route path="/admin" element={<NameChecker/>} />
           <Route path="/Signup" element={<Signup />} />
@@ -134,16 +142,14 @@ const [show,setshow]=useState(false)
 )}
 
 
-function MainContent() {
+function MainContent({email}) {
   return (
     
     <>
 
       <Navbar   />
-
-      <Hoome />
+      <Hoome email={email} />
       <Home />
-      {/* <NameChecker/> */}
       <Favmain />
     <Footer/>
   

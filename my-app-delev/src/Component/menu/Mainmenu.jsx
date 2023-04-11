@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from '../Navbar'
 import Hoome from '../home/Hoome';
 import axios from 'axios';
-function Mainmenu({fn,handleCardCount,count}) {
+
+function Mainmenu({fn,handleCardCount,count,email}) {
 
 
 
@@ -41,6 +42,9 @@ function Mainmenu({fn,handleCardCount,count}) {
     <div>
   
 <Navbar count={count}/>
+
+<Hoome  email={email}></Hoome>
+
 
       <div style={styles} >
 
