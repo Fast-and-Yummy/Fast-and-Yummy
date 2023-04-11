@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({count}) {
+function Navbar({count,x}) {
   const navigate = useNavigate()
+ 
   return (
     <div>
     <nav className="bg-gray-800">
@@ -19,13 +20,13 @@ function Navbar({count}) {
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
          
-            <a href="#" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page"> <Link to="/">Home</Link></a>
+            <a href="" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page"> <Link to="/">Home</Link></a>
 
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">      <Link to="/menu">Order online</Link></a>
+            <a href="" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">      <Link to="/menu">Order online</Link></a>
 
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+            <a href="" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"><Link to="/Contact">Contact Us</Link></a>
 
-            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">store locations</a>
+           
           </div>
         </div>
       </div>
@@ -56,7 +57,7 @@ function Navbar({count}) {
 
       <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">News</a>
 
-      <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">store locations</a>
+
     </div>
   </div>
 </nav>
