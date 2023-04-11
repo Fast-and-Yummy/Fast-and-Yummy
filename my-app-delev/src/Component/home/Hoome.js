@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 function Hoome({email}) {
-  console.log(email);
- 
+
   return (
     <div>
     {email ? (

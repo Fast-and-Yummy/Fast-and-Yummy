@@ -1,5 +1,6 @@
 import React from 'react'
 import emailjs from "emailjs-com";
+import { Link ,useNavigate} from 'react-router-dom'
 
 function Contact() {
 
@@ -36,7 +37,8 @@ emailjs.sendForm('service_de7ooak', 'template_4lxrlmu', e.target, 'c1KDl9CcFGoJ5
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
                 <textarea name="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
             </div>
-            <button type="submit"  class="bg-tawlnd text-white bg-black font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-primary-300 hover:bg-primary-400 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+          <Link  type="submit"  onClick={()=>{alert("thank you we will reaply soon")}} class="bg-tawlnd text-white bg-black font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-primary-300 hover:bg-primary-400 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" to="/">Send message</Link> 
+        
         </form>
     </div>
   </section>
