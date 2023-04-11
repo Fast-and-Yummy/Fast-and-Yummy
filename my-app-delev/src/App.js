@@ -37,6 +37,10 @@ const [notes,setNotes]=useState([])
   const handleCardCount = () => {
     setCount(prevCount => prevCount + 1);
   };
+  
+  const handleCardel = () => {
+    setCount(prevCount => prevCount - 1);
+  };
 
   const handleInput=(event) =>{
     setname(event.target.value)
@@ -50,7 +54,7 @@ const [notes,setNotes]=useState([])
   const handleemailprofile=(x)=>{
     setEmail(x)
   }
-  console.log( email);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -114,8 +118,8 @@ const [notes,setNotes]=useState([])
           <Route path="/welcomeAdmin" element={<WelcomeAdmin/>} />
           <Route path="/admin" element={<NameChecker/>} />
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/Shop" element={<Shop shop={shop} onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
-          <Route path="/Food" element={<DisplayFood fn ={addtocard}  />} />
+          <Route path="/Shop" element={<Shop shop={shop}  handleCardel={handleCardel}onInputChange={handleInput} count={count}    emailsaved={handleemail}/>} />
+          <Route path="/Food" element={<DisplayFood fn ={addtocard}   handleCardCount={handleCardCount} /> } />
           <Route path="/order" element={  <Order ordersaved={shop}  name={savename} email={saveemail} />} />
           <Route path="/Edit" element={<EditFood />} />
           <Route path="/add" element={<CreatFood />} />

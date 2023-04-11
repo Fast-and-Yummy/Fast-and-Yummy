@@ -8,7 +8,7 @@ import emailjs from "emailjs-com";
 
 
 
-const Shop = ({ shop,onInputChange,emailsaved,count}) => {
+const Shop = ({ shop,onInputChange,emailsaved,count,handleCardel}) => {
 const [dt,setDT]=useState(shop)
 const [total,setTotal]=useState(0)
   const navigate = useNavigate();
@@ -144,6 +144,7 @@ emailjs.sendForm('service_de7ooak', 'template_29f7jyy', e.target, 'c1KDl9CcFGoJ5
                    <div>
                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none"
                        viewBox="0 0 24 24" stroke="currentColor"   onClick={()=>{
+                        handleCardel()
                         setDT(dt.filter((k,j)=>{
                           return j!==i
                         }))

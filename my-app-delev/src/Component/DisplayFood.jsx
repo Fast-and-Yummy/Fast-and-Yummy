@@ -2,7 +2,7 @@ import React,{useState}from 'react'
 import { useLocation, useNavigate ,Link } from 'react-router-dom'
 import Navbar from './Navbar'
 
-const DisplayFood = ({fn}) => {
+const DisplayFood = ({fn,handleCardCount}) => {
 
    
     const location = useLocation()
@@ -11,7 +11,7 @@ const DisplayFood = ({fn}) => {
   return (
     <div>
     <div style={{ position: 'relative', zIndex: 11 }}>
-    <Navbar />
+   
   </div>
     <  div class=" " role="dialog" aria-modal="true">
    
@@ -22,10 +22,10 @@ const DisplayFood = ({fn}) => {
      
       <div class="flex w-full  transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
         <div class="relative  mt-20 flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
-          <button type="button" class="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8">
-          <Link to="/menu">BACK</Link>
+         
+          <Link to="/menu" className='absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8'>BACK</Link>
            
-          </button>
+    
 
           <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
             <div class="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
@@ -126,7 +126,11 @@ const DisplayFood = ({fn}) => {
                     </fieldset>
                   </div>
 
-                  <button onClick={()=>{fn(data)}} class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to bag</button>
+                  <button onClick={()=>{
+                    handleCardCount()
+                    fn(data)
+                  
+                  }} class="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add to bag</button>
                 
               </section>
             </div>
